@@ -30,17 +30,7 @@ export class AuthenticationService {
     this.http.post(`${ URL }/oauth/token`, data)
       .subscribe((response: any) => {
         console.log(response);
-        localStorage.setItem('token', response.token);
-        localStorage.setItem('resfresh_token', response.resfresh_token);
       });
-  }
-
-  token() {
-    return localStorage.getItem('token');
-  }
-
-  logout() {
-    localStorage.clear();
   }
 
 }
