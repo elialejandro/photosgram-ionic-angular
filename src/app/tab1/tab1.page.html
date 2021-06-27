@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" [routerLink]="['/tabs/tab2']">
+        <ion-icon name="camera-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Photosgram</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear">
+        <ion-icon name="paper-plane-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <ion-card mode="ios" *ngFor="let i of [1,2,3,4,5]" button [routerLink]="['/details']">
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+      </ion-avatar>
+      <ion-label>
+        Pruebas
+      </ion-label>
+    </ion-item>
+
+    <ion-img src="https://ionicframework.com/docs/demos/api/card/madison.jpg"></ion-img>
+    <ion-card-header>
+      <ion-card-title>Card Title</ion-card-title>
+    </ion-card-header>
+    
+  </ion-card>
+  
+</ion-content>
