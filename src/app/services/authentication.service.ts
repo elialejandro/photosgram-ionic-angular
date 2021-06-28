@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+import { tap } from 'rxjs/operators';
+
 import { environment } from '../../environments/environment';
 
 const CLIENT_ID = environment.clientId;
@@ -27,10 +29,24 @@ export class AuthenticationService {
       scope: ''
     };
 
-    this.http.post(`${ URL }/oauth/token`, data)
-      .subscribe((response: any) => {
-        console.log(response);
-      });
+    return this.http.post(`${ URL }/oauth/token`, data)
+      .pipe(
+        tap(
+          (response: any) => {
+            console.log(response);
+            localStorage.setItem('access_token', response.access_token);
+            localStorage.setItem('refresh_token', response.refresh_token);
+          }
+        )
+      );
+  }
+
+  token() {
+    return localStorage.getItem('access_token');
+  }
+
+  logout() {
+    localStorage.clear();
   }
 
 }

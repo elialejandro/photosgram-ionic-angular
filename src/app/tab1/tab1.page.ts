@@ -20,7 +20,7 @@ export class Tab1Page implements OnInit {
   }
 
   ngOnInit() {
-    this.authService.login('dixie.buckridge@example.com', 'password');
+    // this.authService.login('dixie.buckridge@example.com', 'password');
   }
 
 }
